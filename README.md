@@ -51,7 +51,8 @@ let response = await sendfile.send( "/path/large-file.gz", "https://playground.y
 
 | Name  | Format/Value | Description |
 | ------------- | ------------- | ------------- |
-| Content-Type:   | multipart/form-data  |  |
+| Content-Type:   | multipart/form-data  |      |
+| Content-Name:   | uM7mW6gByqIhUUN4rO8j9.tar  |  The unique name of the given file  |
 | Content-Range   | &lt;unit&gt; &lt;range-start&gt;-&lt;range-end&gt;/&lt;size&gt;  |  See [Content-Range](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Range)  |
 | Content-Disposition | form-data; name="&lt;field name&gt;"; filename="&lt;file basename&gt;"  | See [Content-Disposition](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Disposition) |
 

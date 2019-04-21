@@ -3,7 +3,6 @@
 // 
 
 const assert = require('assert');
-const fs = require('fs');
 const path = require('path');
 const Sendfile = require('../index.js');
 const filename = path.join(__dirname, "assets", "somefile.tar")
@@ -28,6 +27,7 @@ describe('Sendfile', () => {
                     assert.equal(sent, shouldSent);
                 }
             })
+
             let path = response["path"];
             assert.equal( typeof path, "string" );
         });

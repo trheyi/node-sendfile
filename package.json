@@ -1,6 +1,6 @@
 {
   "name": "node-sendfile",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Send a large file to the remote server in synchronous mode and chunked transfer.",
   "main": "index.js",
   "scripts": {
@@ -25,6 +25,8 @@
     "mocha": "^6.1.4"
   },
   "dependencies": {
+    "mime": "^2.4.2",
+    "nanoid": "^2.0.1",
     "request": "^2.88.0",
     "request-promise-native": "^1.0.7"
   }

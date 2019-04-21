@@ -5,6 +5,8 @@
 const fs = require('fs');
 const path = require('path');
 const request = require('request-promise-native');
+const nanoid = require('nanoid')
+const mime = require('mime');
 
 // Default option of send 
 const defaultSendOption = { name:"file", chunksize:1024*512, progress:( sent, total )=>{}, payload:{}, params:{}, headers:{} };
@@ -38,6 +40,10 @@ class Sendfile {
             const reader = fs.createReadStream(file, { highWaterMark:option.chunksize });
             const stats = fs.statSync(file)
             const basename = path.posix.basename(file);
+            const ext = path.extname( file );
+            const mimetype = mime.getType(ext);
+            const uniqueName = nanoid() + ext;
+            
             let sent = 0;
 
             // Read a part of data
@@ -47,7 +53,7 @@ class Sendfile {
                 let end = sent + chunk.length;
                 
                 // Content-Range: <unit> <range-start>-<range-end>/<size>
-                option.headers["Content-Range"] = `bytes ${start} ${end}/${stats.size}`;
+                option.headers["Content-Range"] = `bytes ${start}-${end}/${stats.size}`;
 
                 // Content-Disposition: form-data; name="fieldName"; filename="filename.jpg"
                 option.headers["Content-Disposition"] = `form-data; name="${option.name}"; filename="${basename}"`;
@@ -55,12 +61,15 @@ class Sendfile {
                 // Content-Type
                 option.headers["Content-Type"] = 'multipart/form-data';
 
+                // Content-Name
+                option.headers["Content-Name"] = uniqueName;
+
                 // Send File
                 option.payload[option.name] = {
                     value: chunk,
                     options: {
                         filename: basename,
-                        contentType: "application/octet-stream"
+                        contentType: mimetype
                     }
                 };
                 let response = {};
@@ -82,7 +91,7 @@ class Sendfile {
                 sent = end;
                 option.progress( sent, stats.size );
 
-                // all date sent
+                // all data sent
                 if ( sent == stats.size ) {
                     reader.destroy();
                     resolve( response );
