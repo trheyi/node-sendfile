@@ -1,7 +1,7 @@
 {
   "name": "node-sendfile",
-  "version": "1.0.0",
-  "description": "Send the big file to the remote server. support chunked transfer.",
+  "version": "1.0.1",
+  "description": "Send a large file to the remote server in synchronous mode and chunked transfer.",
   "main": "index.js",
   "scripts": {
     "test": "mocha"
@@ -23,5 +23,9 @@
   "homepage": "https://github.com/artsland/node-sendfile#readme",
   "devDependencies": {
     "mocha": "^6.1.4"
+  },
+  "dependencies": {
+    "request": "^2.88.0",
+    "request-promise-native": "^1.0.7"
   }
 }
