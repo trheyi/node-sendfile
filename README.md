@@ -4,7 +4,7 @@ Send a large file to the remote server in synchronous mode and chunked transfer.
 ## Installation
 
 ```bash
-npm install node-sendfile
+npm install node-sendfile --save
 ```
 
 ## Usage
