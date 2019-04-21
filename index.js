@@ -56,8 +56,7 @@ class Sendfile {
                 option.headers["Content-Type"] = 'multipart/form-data';
 
                 // Send File
-                let payload = option.payload;
-                payload[option.name] = {
+                option.payload[option.name] = {
                     value: chunk,
                     options: {
                         filename: basename,
@@ -75,7 +74,6 @@ class Sendfile {
                     });
                 } catch ( err ) {
                     reader.destroy();
-                    partfile.destroy();
                     reject( err );
                     return;
                 }
