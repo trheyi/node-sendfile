@@ -1,0 +1,24 @@
+{
+  "name": "node-sendfile",
+  "version": "1.0.0",
+  "description": "Send the big file to the remote server. support chunked transfer.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/artsland/node-sendfile.git"
+  },
+  "keywords": [
+    "upload",
+    "sendfile",
+    "chunked"
+  ],
+  "author": "max",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/artsland/node-sendfile/issues"
+  },
+  "homepage": "https://github.com/artsland/node-sendfile#readme"
+}
