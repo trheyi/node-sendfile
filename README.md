@@ -61,5 +61,5 @@ let response = await sendfile.send( "/path/large-file.gz", "https://playground.y
 | Status  | Body | Description |
 | ------------- | ------------- | ------------- |
 | 200     | {"path":"/storage/path/large-file.gz", "url":"https://playground.yaojs.org/static-file/path/large-file.gz"}   |  The response body must be JSON format text |
-| 300~400 | {"code":400,"message":"user sex required", "extra":{"fields":{"sex"}, "messages":{"sex":"sex required"}} }  | The response body must be JSON format text  |
+| 300~400 | {"code":400,"message":"user sex required", "extra":{"fields":["sex"], "messages":{"sex":"sex required"}} }  | The response body must be JSON format text  |
 | 500~600 | {"code":500,"message":"not enough disk space"} } | The response body must be JSON format text |
