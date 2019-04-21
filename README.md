@@ -4,7 +4,7 @@ Send a large file to the remote server in synchronous mode and chunked transfer.
 ## Installation
 
 ```bash
-npm install node-sendfile --save
+npm i node-sendfile --save
 ```
 
 ## Usage
@@ -17,7 +17,7 @@ let response = await sendfile.send( "/path/large-file.gz", "https://playground.y
         payload:{ name:"hello" },
         progress: ( sent, total ) =>{
             let percent = (sent / total * 100).toFixed(2);
-            console.log(`progress ${shouldSent} ${sent}/${total} ${percent}%`);
+            console.log(`progress ${sent}/${total} ${percent}%`);
         }
     });
     console.log( response );
