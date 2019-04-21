@@ -1,4 +1,4 @@
-# node-sendfile
+# Node-Sendfile
 Send a large file to the remote server in synchronous mode and chunked transfer.
 
 ## Installation
