@@ -17,7 +17,7 @@ let response = await sendfile.send( "/path/large-file.gz", "https://playground.y
         payload:{ name:"hello" },
         progress: ( sent, total ) =>{
             let percent = (sent / total * 100).toFixed(2);
-            console.log(`#${i} progress ${shouldSent} ${sent}/${total} ${percent}%`);
+            console.log(`progress ${shouldSent} ${sent}/${total} ${percent}%`);
         }
     });
     console.log( response );
